@@ -9,10 +9,8 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Debounced search value
   const debouncedSearch = useDebounce(search, 1000);
 
-  // Fetch users only once when component mounts
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -33,7 +31,6 @@ export default function App() {
     fetchUsers();
   }, []);
 
-  // Case-insensitive filtering
       useEffect(() => {
       console.log("Debounced Value:", debouncedSearch);
     }, [debouncedSearch]);
